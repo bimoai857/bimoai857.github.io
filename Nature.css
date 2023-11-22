@@ -1,0 +1,175 @@
+*{
+  box-sizing: border-box;
+  margin:0px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 534px 450px; 
+    grid-template-rows: auto 900px; 
+    row-gap: 30px;
+    column-gap: 0px;
+    /* margin-right: 100px; */
+  }
+  
+  .grid-item-other {
+   display: none;
+  }
+
+  .title{
+    color: var(--white, #FFF);
+/* text/large title */
+  font-family: Libre Baskerville;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%; /* 49.5px */
+  text-transform: capitalize;
+  }
+  
+  .container{
+    background-color:  #343D33;
+    ;
+ 
+  }
+
+ #plant{
+    width: 490px;
+    height: 300px;
+ 
+  }
+
+  #seatingArea{
+    width: 1024px;
+    height: 350px;
+  }  
+
+  .container{
+    margin-left: 10%;
+    margin-top: 40px;
+
+  }
+
+  body{
+    overflow: hidden;
+  }
+  
+.description{
+  color: var(--white, #FFF);
+/* text/default body */
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 30px */
+margin-top: 10px;
+}
+
+.button{
+  position: absolute;;
+  padding: 20px 40px;
+  color: white;
+  border: 2px solid white;
+  margin-top: 40px;
+  cursor: pointer;
+
+}
+
+@media (max-width: 1024px) {
+  *{
+    box-sizing: border-box;
+    margin:0px;
+  }
+  body{
+    overflow:scroll;
+  }
+  .grid-item{
+    display: none;
+  }
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column for larger screens */
+    grid-template-rows: auto auto; /* Two rows for larger screens */
+}
+
+.container{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.button{
+  position: absolute;;
+  padding: 20px 40px;
+  color: white;
+  border: 2px solid white;
+  margin-top: 30px;
+  cursor: pointer;
+
+}
+
+
+.grid-item-other{
+  display: block;
+}
+#plant{
+  width: 534px;
+  height: 300px;
+
+}
+#seatingArea{
+  width: 534px;
+  height: 211px;
+}  
+}
+
+@media (max-width: 575px) {
+  *{
+    box-sizing: border-box;
+    margin:0px;
+  }
+  body{
+    overflow:scroll;
+  }
+  .grid-item{
+    display: none;
+  }
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column for larger screens */
+    grid-template-rows: auto auto; /* Two rows for larger screens */
+}
+
+.container{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.button{
+  position: absolute;;
+  padding: 20px 40px;
+  color: white;
+  border: 2px solid white;
+  margin-top: 30px;
+  left: 150px;
+  cursor: pointer;
+
+}
+
+
+.grid-item-other{
+  display: block;
+}
+#plant{
+  width: 450px;
+  height: 300px;
+
+}
+#seatingArea{
+  width: 450px;
+  height: 211px;
+}  
+.description{
+  text-align: center;
+}
+.title{
+  text-align: center;
+}
+}
+
