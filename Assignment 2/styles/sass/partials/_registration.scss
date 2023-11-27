@@ -1,0 +1,97 @@
+.registration {
+  background-color: rgb(207, 207, 207);
+  &__title {
+    color: #000;
+    font-family: $font-family;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 40px;
+  }
+  &__form-group {
+    display: flex;
+
+    justify-content: space-between;
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    order: 0;
+    max-width: 647px;
+    @media screen and (max-width: 1200px) {
+      order: 1;
+    }
+
+    &-title {
+      color: #000;
+      margin-bottom: 20px;
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 40px;
+      order: 0;
+    }
+  }
+  &__top {
+    max-width: 724px;
+  }
+
+  &__notification {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-family: $font-family;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: rgba(11, 21, 60, 0.15);
+    height: 70px;
+    padding-left: 30px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    font-size: 24px;
+    border: none;
+    &-number {
+      display: flex;
+      gap: 10px;
+      height: 70px;
+      border-radius: 20px;
+      background: rgba(11, 21, 60, 0.15);
+      box-sizing: border-box;
+     &-content{
+      display: flex;
+      height: 40px;
+      width: 334px;
+      padding: 15px 30px;
+      input{
+        box-sizing: border-box;
+         background: rgba(0, 0, 0, 0);
+         width: 252px;
+         border: none;
+         font-size: 24px;
+      }
+     }
+    }
+  }
+  &__button1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 41px;
+  }
+  &__already{
+    display: flex;
+    gap: 46px;
+    margin-top: 40px;
+  }
+}

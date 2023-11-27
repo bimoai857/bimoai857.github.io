@@ -1,0 +1,115 @@
+// .btn {
+//   font-weight: 600;
+//   border-radius: 8px;
+//   border: none;
+//   cursor: pointer;
+//   //   default button is medium sized
+//   padding: 16px 32px;
+//   //   small sized button
+//   &.small {
+//     padding: 12px 24px;
+//     line-height: 20px;
+//   }
+// }
+
+.btn {
+  &__solid {
+    display: inline-flex;
+    padding: 20px 25px;
+    cursor: pointer;
+    gap: 10px;
+    border-radius: 20px;
+    background: #17c2ec;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    @media screen and (max-width: 1200px) {
+      min-width: 236px;
+    }
+    &-verify {
+      display: inline-flex;
+      padding: 20px 57px;
+      align-items: flex-start;
+      cursor: pointer;
+      gap: 10px;
+      border-radius: 20px;
+      background: #17c2ec;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      p {
+        color: #fff;
+
+        font-family: $font-family;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        @media screen and (max-width: 1200px) {
+          margin: 0 auto;
+        }
+      }
+    }
+    p {
+      color: #fff;
+      margin: 0 auto;
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      @media screen and (max-width: 1200px) {
+        margin: 0 auto;
+      }
+    }
+  }
+  &__outline {
+    display: inline-flex;
+    padding: 20px 26px;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 10px;
+    border: 2px solid #17C2EC;
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    p {
+      color: #fff;
+
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  &__btn {
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
+  }
+  &__check {
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.1);
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    padding: 20px 26px;
+    align-items: flex-start;
+    cursor: pointer;
+    p {
+      color: #17c2ec;
+
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+}

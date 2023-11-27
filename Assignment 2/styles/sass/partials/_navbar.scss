@@ -1,0 +1,78 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 41px;
+    &__footer{
+      display: flex;
+    justify-content: space-between;
+    padding-top: 409px;
+    padding-bottom: 133px;
+    @media screen and (max-width:1200px) {
+     flex-direction: column;
+     
+   }
+    }
+    &__logo{
+        display: flex;
+        cursor: pointer;
+        @media screen and (max-width:1200px) {
+         margin-bottom: 2%;
+          
+        }
+    }
+    &__logos{
+    
+      cursor: pointer;
+     
+  }
+    &__pages{
+        display: flex;
+         gap: 25px;
+         @media screen and (max-width:1200px) {
+          display: none;
+       }
+    }
+    &__page{
+      display: flex;
+       gap: 25px;
+       @media screen and (max-width:1200px) {
+        margin-bottom: 2%;
+         
+       }
+       @media screen and (max-width:992px) {
+        margin-bottom: 2%;
+        flex-direction: column; 
+       }
+  }
+    &__dot{
+        width: 10px;
+        height: 10px;
+        margin-left: 40%;
+    }
+  &__pages-active {
+    color: #fff;
+    font-family: $font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  &__pages-inactive {
+    color: rgba(255, 255, 255, 0.5);
+
+    font-family: $font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

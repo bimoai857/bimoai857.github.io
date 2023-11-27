@@ -1,0 +1,92 @@
+.result {
+  border-radius: 20px;
+  background: rgba(196, 196, 196, 0.1);
+  @media screen and (max-width:1200px) {
+    height: 547px;
+  }
+  &__title {
+    color: #fff;
+
+    font-family: $font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__upper {
+    border-radius: 20px 20px 0px 0px;
+    background: rgba(196, 196, 196, 0.05);
+    padding-top: 36px;
+    padding-bottom: 36px;
+    padding-left: 93px;
+  }
+  &__lower {
+    padding-top: 36px;
+    padding-left: 93px;
+    height: 195px;
+  }
+  &__input {
+    @media screen and (max-width:1200px) {
+      height: 250px;
+    }
+   
+    display: flex;
+    margin-right: 93px;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    @media screen and (max-width:1200px) {
+      flex-direction: column;
+  
+    }
+  }
+  &__each {
+    border: none;
+    box-sizing: border-box;
+    padding-left: 25px;
+    width: 351px;
+    height: 69px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.1);
+    color: #fff;
+    
+    border-radius: 20px;
+    border: 3px solid rgba(196, 196, 196, 0.15);
+  }
+  &__link {
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.05);
+    padding-top: 21px;
+    padding-bottom: 21px;
+    margin-right: 93px;
+    p {
+      color: #17c2ec;
+
+      font-family: $font-family;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+  &__check{
+    cursor: pointer;
+    @media screen and (max-width:1200px) {
+     width: 132px;
+    }
+    border-radius: 20px;
+    border: 3px solid #17C2EC;
+    background: rgba(196, 196, 196, 0.10);
+    padding: 20px 25px;
+    p {
+      color: #17C2EC;
+
+font-family: $font-family;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    }
+  }
+}

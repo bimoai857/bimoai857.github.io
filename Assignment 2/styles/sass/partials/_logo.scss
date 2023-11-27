@@ -1,0 +1,19 @@
+.logo {
+  background: rgb(128, 128, 128);
+  @media screen and (max-width:1200px){
+    background: rgb(255, 255, 255);
+}
+  flex-shrink: 0;
+  &__group{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__each{
+    @media screen and (max-width:1200px){
+        max-width: 148px;
+    }
+    @media screen and (max-width:992px){
+        max-width: 72px;
+    }
+  }
+}

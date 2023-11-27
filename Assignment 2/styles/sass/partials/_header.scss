@@ -1,0 +1,13 @@
+.header {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  &__logo {
+    margin: 0;
+  }
+  &__nav {
+    display: flex;
+    list-style-type: none;
+    gap: 32px;
+  }
+}

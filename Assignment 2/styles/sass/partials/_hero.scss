@@ -1,0 +1,50 @@
+.hero {
+  @media screen and (min-width: 1200px) {
+    display: flex;
+   
+  }
+  margin-top: 100px;
+  justify-content: space-between;
+  &__title-1 {
+    color: #17c2ec;
+    font-family: $font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__title-2 {
+    color: #fff;
+
+    font-family: $font-family;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 50px 0;
+  }
+
+  &__title-3 {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: $font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 50px;
+  }
+
+  &__left {
+    max-width: 649px;
+  }
+  &__btn-group {
+    display: flex;
+    gap: 20px;
+  }
+  &__right {
+    max-width: 530px;
+    @media screen and (max-width:1200px) {
+        margin-top: 55px;
+    }
+  }
+}
