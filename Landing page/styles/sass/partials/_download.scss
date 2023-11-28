@@ -1,0 +1,66 @@
+.download {
+  &__parent {
+    position: relative;
+    max-width: 1200px;
+    height: 526px;
+    margin-bottom: 120px;
+  
+  }
+  &__img{
+    width: 992px;
+    @media screen and (max-width:1200px){
+      width: 834px;
+    }
+      @media screen and (max-width:992px){
+      width: 100%;
+      margin-bottom: 0px;
+    }
+  }
+  &__card {
+    display: flex;
+    position: absolute;
+    height: 379px;
+    // width: 547px;
+    left: 587px;
+    top: 76px;
+    align-items: flex-end;
+    align-content: flex-end;
+    gap: 40px 24px;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0px 24px 64px -12px rgba(26, 24, 65, 0.06);
+    // top: 86px;
+    // left: 720px;
+    @media screen and (max-width:1200px) {
+      top: 161px;
+      left: 40%;
+    }
+    @media screen and (max-width:992px) {
+      position: static;
+    }
+  }
+  &__title {
+    color: var(--Text, #1d1c31);
+    font-family: $font-family;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px; /* 130% */
+    letter-spacing: -0.8px;
+    margin-left: 52px;
+  }
+  &__desc {
+    color: rgba(29, 28, 49, 0.6);
+    margin-left: 52px;
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+  }
+  &__social{
+    margin-left: 52px;
+    height: 79px;
+  }
+}

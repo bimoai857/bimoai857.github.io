@@ -1,0 +1,93 @@
+.benefits {
+  &__title {
+    color: var(--Text, #1d1c31);
+    font-family: $font-family;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px; /* 130% */
+    letter-spacing: -0.8px;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    @media screen and (max-width: 992px) {
+      text-align: center;
+    }
+  }
+  &__elements {
+    display: flex;
+    margin-bottom: 113px;
+    justify-content: space-between;
+    max-width: 1200px;
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+  &__each {
+    display: flex;
+    flex-direction: column;
+
+    width: 338px;
+    height: 382px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    box-shadow: 0px 24px 64px -12px rgba(26, 24, 65, 0.06);
+    align-items: center;
+
+    @media screen and (max-width:1200px) {
+        width:293px;
+    }
+  }
+  &__desc {
+    color: rgba(29, 28, 49, 0.6);
+    margin: 0px;
+    height: 103px;
+    text-align: center;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+    @media screen and (max-width:1200px) {
+      font-size: 14px;
+  }
+  }
+  &__title-card {
+    color: var(--Text, #1d1c31);
+    font-family: $font-family;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 12px;
+   
+  }
+  &__img {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    @media screen and (max-width:1200px) {
+      width: 70px;
+      height: 70px;
+  }
+  }
+  &__button {
+    display: flex;
+    margin-top: 33px;
+    margin-left: 59%;
+    margin-bottom: 32px;
+    p {
+      color: var(--5-d-55-ff, #5d55ff);
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &.inactive{
+      p{
+        color: var(--Text, #1D1C31); ;
+      }
+    }
+  }
+}

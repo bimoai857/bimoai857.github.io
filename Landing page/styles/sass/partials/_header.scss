@@ -1,0 +1,32 @@
+.header {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  &__logo {
+    margin: 0;
+  }
+  &__nav {
+    display: flex;
+    list-style-type: none;
+    gap: 32px;
+    align-items: center;
+    &--item {
+      color: #b6b3eb;
+
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &--home {
+      color: #fff;
+
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}

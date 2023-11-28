@@ -1,0 +1,17 @@
+.logos{
+    height: 84px;
+    background-color: #7B75FC;
+    &__elements{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 24px 0px;
+       
+    }
+   &__each{
+     @media screen and (max-width:1200px) {
+            width: 141px;
+            height: 28px;            
+        }
+   }
+  }

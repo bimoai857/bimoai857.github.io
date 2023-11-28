@@ -1,0 +1,84 @@
+.testimonial {
+  &__title {
+    color: var(--Text, #1d1c31);
+    font-family: $font-family;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px; /* 130% */
+    letter-spacing: -0.8px;
+    margin-bottom: 40px;
+  }
+  &__card {
+    border-radius: 8px;
+
+    max-width: 350px;
+   
+    
+  }
+  &__desc {
+    color: #1D1C31;
+
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 200% */
+    padding:0px 32px;
+   
+  }
+  &__group{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__people{
+    display: flex;
+   
+    
+  }
+  &__circle{
+    position: relative;
+    width: 52px;
+    height: 52px;
+  }
+  &__head{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__circle-group{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  &__arrow{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  &__bottom-button{
+    margin-left:   35%;
+    margin-top: 39px;
+    margin-bottom: 71px;
+  }
+  @media screen and (max-width:992px) {
+    display: none;
+  }
+  &__first{
+    background-color: #4D46E8;
+    border-radius: 8px;
+  }
+  &__quote{
+    // img{
+    //   fill: rgba(255, 255, 255, 0.10);
+    // }
+   
+  }
+  &__line{
+    width: 100%;
+  }
+  &__img{
+    
+      width: 80px;
+    
+  }
+}

@@ -1,0 +1,58 @@
+.guideline {
+  background-color: #5d55ff;
+  height: 830px;
+  @media screen and (max-width:992px) {
+    display: none;
+   
+  }
+  &__title {
+    color: var(--ffffff, #fff);
+    font-family: $font-family;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px; /* 130% */
+    letter-spacing: -0.8px;
+
+  }
+  &__desc-group {
+    display: flex;
+  }
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 140px;
+    padding-top: 45px;
+  }
+  &__info {
+    width: 296px;
+  }
+  &__line {
+    position: relative;
+    img {
+      max-width: 1200px;
+    }
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  &__circle {
+    position: absolute;
+    width: 100%;
+    top: 3px;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__timeline-info {
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.10);
+
+  }
+  &__icon{
+    display: flex;
+    flex-direction: row;
+  }
+  &__upper{
+    display: flex;
+    justify-content: space-around;
+  }
+}
