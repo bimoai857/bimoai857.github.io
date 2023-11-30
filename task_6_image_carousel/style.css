@@ -45,7 +45,7 @@
     position: absolute;
     z-index: 1;
     top: 300px;
-    
+    left: -10px;
     display: flex;
     justify-content: space-between;
     width: var(--width);
