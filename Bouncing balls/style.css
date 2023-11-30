@@ -1,0 +1,28 @@
+/* Apply styles to the entire body */
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    background-color: #f0f0f0;
+  }
+  
+  /* Styles for the bouncing balls container */
+  #container {
+    position: relative;
+    width: 60vw; 
+    height: 60vh; 
+    background-color: #f0f0f0;
+    border: 2px solid black; 
+  }
+  
+  /* Styles for individual bouncing balls */
+  .ball {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
