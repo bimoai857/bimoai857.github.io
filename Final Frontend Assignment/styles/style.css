@@ -388,9 +388,21 @@ button {
   background: #17c2ec;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+.btn__solid:hover {
+  background: #1494bb; /* Change to your desired hover background color */
+}
 @media screen and (max-width: 1200px) {
   .btn__solid {
-    min-width: 236px;
+    font-size: 20px;
+    max-width: 175px;
+    max-height: 64px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn__solid {
+    font-size: 14px;
+    max-width: 138px;
+    max-height: 50px;
   }
 }
 .btn__solid-verify {
@@ -403,6 +415,9 @@ button {
   background: #17c2ec;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+.btn__solid-verify:hover {
+  background: #1494bb; /* Change to your desired hover background color */
+}
 .btn__solid-verify p {
   color: #fff;
   font-family: "Montserrat", sans-serif;
@@ -414,6 +429,13 @@ button {
 @media screen and (max-width: 1200px) {
   .btn__solid-verify p {
     margin: 0 auto;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn__solid-verify p {
+    margin: 0 auto;
+    font-size: 14px;
   }
 }
 .btn__solid p {
@@ -425,11 +447,6 @@ button {
   font-weight: 700;
   line-height: normal;
 }
-@media screen and (max-width: 1200px) {
-  .btn__solid p {
-    margin: 0 auto;
-  }
-}
 .btn__outline {
   display: inline-flex;
   padding: 20px 26px;
@@ -440,6 +457,9 @@ button {
   border-radius: 20px;
   background: rgba(196, 196, 196, 0.1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.btn__outline:hover {
+  background: rgba(23, 194, 236, 0.2); /* Change to your desired hover background color */
 }
 .btn__outline p {
   color: #fff;
@@ -453,6 +473,18 @@ button {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+@media screen and (max-width: 1200px) {
+  .btn__outline p {
+    margin: 0 auto;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn__outline p {
+    margin: 0 auto;
+    font-size: 14px;
+  }
 }
 @media screen and (min-width: 1200px) {
   .btn__btn {
@@ -468,6 +500,9 @@ button {
   align-items: flex-start;
   cursor: pointer;
 }
+.btn__check:hover {
+  background: rgba(23, 194, 236, 0.2); /* Change to your desired hover background color */
+}
 .btn__check p {
   color: #17c2ec;
   font-family: "Montserrat", sans-serif;
@@ -475,6 +510,18 @@ button {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+@media screen and (max-width: 1200px) {
+  .btn__check p {
+    margin: 0 auto;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .btn__check p {
+    margin: 0 auto;
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 1200px) {
   .btn__check {
@@ -596,6 +643,16 @@ button {
   font-weight: 700;
   line-height: normal;
 }
+@media screen and (max-width: 1200px) {
+  .hero__title-1 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero__title-1 {
+    font-size: 12px;
+  }
+}
 .hero__title-2 {
   color: #fff;
   font-family: "Montserrat", sans-serif;
@@ -605,6 +662,34 @@ button {
   line-height: normal;
   margin: 50px 0;
 }
+@media screen and (max-width: 1200px) {
+  .hero__title-2 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero__title-2 {
+    font-size: 24px;
+  }
+}
+.hero__title-2 span {
+  color: #17c2ec;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-style: norm al;
+  font-weight: 800;
+  line-height: normal;
+}
+@media screen and (max-width: 1200px) {
+  .hero__title-2 span {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero__title-2 span {
+    font-size: 24px;
+  }
+}
 .hero__title-3 {
   color: rgba(255, 255, 255, 0.7);
   font-family: "Montserrat", sans-serif;
@@ -613,6 +698,17 @@ button {
   font-weight: 700;
   line-height: normal;
   margin-bottom: 50px;
+  color: rgba(255, 255, 255, 0.7);
+}
+@media screen and (max-width: 1200px) {
+  .hero__title-3 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero__title-3 {
+    font-size: 14px;
+  }
 }
 .hero__left {
   max-width: 649px;
@@ -821,6 +917,9 @@ button {
     width: 132px;
   }
 }
+.result__check:hover {
+  background: rgba(23, 194, 236, 0.2); /* Change to your desired hover background color */
+}
 .result__check p {
   color: #17C2EC;
   font-family: "Montserrat", sans-serif;
@@ -833,6 +932,18 @@ button {
 .vaccine__upper {
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+  .vaccine__upper {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .vaccine__upper {
+    flex-direction: column;
+    margin-top: 17px;
+  }
 }
 .vaccine__upper-left {
   color: #fff;
@@ -850,6 +961,16 @@ button {
   font-weight: 400;
   line-height: normal;
   max-width: 528px;
+}
+@media screen and (max-width: 1200px) {
+  .vaccine__upper-right {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .vaccine__upper-right {
+    margin-top: 17px;
+  }
 }
 .vaccine__lower {
   display: flex;

@@ -2,7 +2,14 @@
   &__upper {
     display: flex;
     justify-content: space-between;
-
+    @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    margin-top: 40px;
+    }
+    @media screen and (max-width: 992px) {
+   flex-direction: column;
+   margin-top: 17px;
+    }
     &-left {
       color: #fff;
       font-family: $font-family;
@@ -20,6 +27,14 @@
       font-weight: 400;
       line-height: normal;
       max-width: 528px;
+      @media screen and (max-width: 1200px) {
+
+        margin-top: 40px;
+        }
+        @media screen and (max-width: 992px) {
+     
+       margin-top: 17px;
+        }
     }
   }
   &__lower {

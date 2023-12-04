@@ -21,9 +21,24 @@
     border-radius: 20px;
     background: #17c2ec;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    @media screen and (max-width: 1200px) {
-      min-width: 236px;
+    &:hover {
+      background: #1494bb; /* Change to your desired hover background color */
     }
+    // @media screen and (max-width: 1200px) {
+    //   min-width: 236px;
+    // }
+     @media screen and (max-width: 1200px) {
+    
+        font-size: 20px;
+        max-width: 175px;
+        max-height: 64px;
+      }
+      @media screen and (max-width: 992px) {
+     
+        font-size: 14px;
+        max-width: 138px;
+        max-height: 50px;
+      }
     &-verify {
       display: inline-flex;
       padding: 20px 57px;
@@ -33,6 +48,9 @@
       border-radius: 20px;
       background: #17c2ec;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      &:hover {
+        background: #1494bb; /* Change to your desired hover background color */
+      }
       p {
         color: #fff;
 
@@ -43,6 +61,11 @@
         line-height: normal;
         @media screen and (max-width: 1200px) {
           margin: 0 auto;
+          font-size: 20px;
+        }
+        @media screen and (max-width: 992px) {
+          margin: 0 auto;
+          font-size: 14px;
         }
       }
     }
@@ -54,9 +77,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      @media screen and (max-width: 1200px) {
-        margin: 0 auto;
-      }
+     
     }
   }
   &__outline {
@@ -69,6 +90,9 @@
     border-radius: 20px;
     background: rgba(196, 196, 196, 0.1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    &:hover {
+      background: rgba(23, 194, 236, 0.2); /* Change to your desired hover background color */
+    }
     p {
       color: #fff;
 
@@ -83,6 +107,14 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media screen and (max-width: 1200px) {
+        margin: 0 auto;
+        font-size: 20px;
+      }
+      @media screen and (max-width: 992px) {
+        margin: 0 auto;
+        font-size: 14px;
+      }
     }
   }
   &__btn {
@@ -92,13 +124,16 @@
   }
   &__check {
     border-radius: 20px;
-    background: rgba(196, 196, 196, 0.1);
+    background:rgba(196, 196, 196, 0.10);;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: inline-flex;
     padding: 20px 26px;
     align-items: flex-start;
     cursor: pointer;
+    &:hover {
+      background: rgba(23, 194, 236, 0.2); /* Change to your desired hover background color */
+    }
     p {
       color: #17c2ec;
 
@@ -107,6 +142,14 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media screen and (max-width: 1200px) {
+        margin: 0 auto;
+        font-size: 20px;
+      }
+      @media screen and (max-width: 992px) {
+        margin: 0 auto;
+        font-size: 14px;
+      }
     }
     @media screen and (max-width: 1200px) {
       display: none;
