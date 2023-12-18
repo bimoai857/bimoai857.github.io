@@ -9,7 +9,7 @@ document
 
 let audioElement=importAudioPlayer;
 let lyrics = [];
-const canvas = document.getElementById('canvas1');
+const canvas = document.getElementById('lyricsCanvas');
 
 
 
@@ -88,7 +88,7 @@ return parsedLyrics;
 }
 
 function drawLyrics() {
-  const canvas = document.getElementById("canvas1");
+  const canvas = document.getElementById("lyricsCanvas");
   const ctx = canvas.getContext("2d");
 
   audioElement.addEventListener("timeupdate", () => {
