@@ -1,0 +1,75 @@
+.player{
+    width: 100%;
+    height: 80vh;
+    background: rgb(0,0, 0);
+    &__tracks{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    &__content{
+        display: flex;
+        height: 92%;
+        justify-content: space-between;
+    }
+    &__playlistContainer{
+        background: '#121212';
+        height: 100%;
+        flex: 1;
+        
+    }
+    &__playlist{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+     
+    }
+    &__visualizer{
+        flex: 4;
+        width: 60%;
+        height: 100%;
+    }
+    &__equalizer{
+        background: black;
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__selectDetails,
+    &__playlistButton,
+    &__button {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        cursor: pointer;
+    }
+  
+ 
+}
+#player__tracks p{
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#createPlaylistButton{
+    background-color: #121212;
+    color: #FF8232;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#exportPlaylistButton{
+    background-color: #121212;
+    color: rgb(56, 150, 56);
+    cursor: pointer;
+    font-size: 14px;
+}
+h5{
+    background-color: #121212;
+    color: white;
+}

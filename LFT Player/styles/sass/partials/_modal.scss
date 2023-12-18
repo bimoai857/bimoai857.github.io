@@ -1,0 +1,16 @@
+.modal{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(49, 44, 44, 0.2);
+    
+    &__form{
+        position: absolute;
+        background-color: white;
+        width: 50vw;
+        height: 50vh;
+        left: 25vw;
+        top: 25vh;
+        
+    }
+}

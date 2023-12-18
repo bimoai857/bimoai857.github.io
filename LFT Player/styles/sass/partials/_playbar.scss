@@ -1,0 +1,85 @@
+.playbar{
+    background-color: #121212;
+    width: 100%;
+    height: 10vh;
+    &__content{
+        display: flex;
+        height: 100%;
+    }
+    &__circle{
+        position: absolute;
+        border-radius: 8px;
+        background-color: #ff8232;
+        height: 14px;
+        width: 14px;
+        top: -4px;
+    }
+    &__button{
+        background: #0000;
+        color: white;
+        cursor: pointer;
+    }
+    &__navigationContainer{
+        background: #0000;
+        width: 100%;
+        flex: 1;
+    }
+    &__navigation{
+      
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        gap: 3em;
+        align-items: center;
+    }
+    &__progressContent{
+        background: #0000;
+        flex: 3;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 3%;
+    }
+    &__soundSpeed{
+        background: #0000;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+    }
+    &__progressContainer{
+        position: relative;
+        width: 100%;
+        height: 5px;
+        background-color: #9d9d9d;
+        border-radius: 2px;
+    }
+    &__timeProgress{
+        color: white;
+    }
+    &__duration{
+        color: white;
+    }
+    
+}
+#progress{
+    width: 0;
+    height: 100%;
+    background: #ff8232;
+    transition: width 0.3 ease-out;
+    border-radius: 2px;
+}
+
+#speedControl ,#volumeControl{
+
+
+}
+
+.speed,.sound{
+    margin-top: 7%;
+}
+#speedValue,#volumeValue{
+    text-align: center;
+    color: white;
+}
