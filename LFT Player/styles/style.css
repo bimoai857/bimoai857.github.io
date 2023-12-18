@@ -331,7 +331,6 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   line-height: 1.75;
-  color: green;
 }
 
 a {
@@ -353,12 +352,20 @@ button {
 input[type=range] {
   accent-color: #ff8232;
   height: 5px;
+  width: 100%;
 }
 
 input[type=text] {
   border: none;
   background-color: #121212;
   color: white;
+}
+
+select {
+  appearance: none;
+  border: none;
+  background-color: #121212;
+  color: #ff8232;
 }
 
 .container {
@@ -426,7 +433,7 @@ input[type=text] {
   width: 100%;
   flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100%;
 }
 .playbar__progressContainer {
@@ -473,6 +480,20 @@ input[type=text] {
   height: 50vh;
   left: 25vw;
   top: 25vh;
+  padding: 20px;
+  border-radius: 10px;
+}
+.modal__title {
+  color: #ff8232;
+  font-weight: bold;
+}
+.modal__edit {
+  display: block;
+  color: white;
+  background-color: #ff8232;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 8px;
 }
 
 .player {
@@ -518,6 +539,16 @@ input[type=text] {
   justify-content: space-between;
   font-size: 12px;
   cursor: pointer;
+}
+.player__equalizerBand {
+  display: flex;
+  gap: 2%;
+}
+.player__equalizerBand h5 {
+  min-width: 28%;
+}
+.player__equalizerBand input {
+  align-self: center;
 }
 
 #player__tracks p {

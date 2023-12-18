@@ -46,6 +46,19 @@
         font-size: 12px;
         cursor: pointer;
     }
+
+    &__equalizerBand{
+        display: flex;
+        gap: 2%;
+        h5{
+            min-width: 28%;
+        }
+        input{
+            align-self: center;
+        }
+    }
+
+ 
   
  
 }

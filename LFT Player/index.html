@@ -18,17 +18,16 @@
     <div class="modal" style="display: none">    
     </div>
     <div class="modal__form" style="display: none">
-        Song: <h3 class="modal__title"></h3>
-        Album:<input class="modal__album"/>
-        Genre:<input class="modal__genre"/>
-        Artist:<input class="modal__artist"/>
-        
+       <div class="modal__title">Song: </div> 
+       <h3 class="modal__trackName"></h3>
+       <div class="modal__title"> Album:</div>
+       <input class="modal__album"/>
+       <div class="modal__title">Genre:</div>
+       <input class="modal__genre"/>
+        <div class="modal__title">Artist:</div>
+        <input class="modal__artist"/>
         <button class="modal__edit">Edit</button>
-        Add Lyrics:<input
-        type="file"
-        id="srtFile"
-        accept=".srt"
-      />
+        
     </div>
     <header class="header">
       <div class="container">
@@ -40,12 +39,28 @@
           <input type="file" id="importPlaylistInput" accept=".json" hidden />
           <button class="header__button" id="importPlaylistButton">
             Import Playlist
-          </button>
+            </button>
+            <select id="visualizerSelect" name="visualizer">
+              <option value="1">Visualizer 1</option>
+              <option value="2">visualizer 2</option>
+              <option value="3">visualizer 3</option>
+              <option value="4">visualizer 4</option>
+              <!-- Add more options as needed -->
+            </select>
           <button class="header__button" id="displayLyricsVisualizer">
             Display Lyrics
           </button>
-          <a href="#">Crop</a>
-         
+          <button class="header__button" id="chooseLyrics">
+            Import Lyrics
+          </button>
+       <input
+        type="file"
+        id="srtFile"
+       
+        accept=".srt"
+        hidden
+      />
+          
         </nav>
       </div>
     </header>
@@ -54,7 +69,7 @@
         <div class="player__content">
 
 
-          <div class="player__playlistContainer">
+          <div class="player__playlistContainer" style="display: none;">
             <div class="card">
               <div class="player__playlist">
                 <input placeholder="Enter an album,artist or track" class="searchBar" type="text"/>
@@ -67,9 +82,8 @@
                   </button>
                 </div>
               
-                  <div id="playlist__title"></div>
+                  <div id="playlistTitle"></div>
                   <div id="player__tracks">
-                  
                   </div> 
                   
               </div>
@@ -79,44 +93,45 @@
 
 
           <div class="player__visualizer">
-            <canvas id="canvas1" width="1100" height="600"></canvas>
-            <canvas id="lyricsCanvas" width="1100" height="600" style="display: none;" ></canvas>
+            <canvas id="canvas1" width="1100" height="550"></canvas>
+            <canvas id="lyricsCanvas" width="1100" height="550" style="display: none;" ></canvas>
           </div>
                 
          
-          <div class="player__equalizer" >
-        
-            <!-- <label for="eq1">Band 1 (0 - 60 Hz)</label> -->
+          <div class="player__equalizer"  style="display: none;">
             <div class="card card__equalizer">
-              <input type="range" id="eq1" min="-12" max="12" step="0.1" value="0" />
 
-              <!-- <label for="eq2">Band 2 (100 - 400 Hz)</label> -->
-              <input type="range" id="eq2" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq3">Band 3 (400 - 1000 Hz)</label> -->
-              <input type="range" id="eq3" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq4">Band 4 (1000 - 4000 Hz)</label> -->
-              <input type="range" id="eq4" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq5">Band 5 (4000 - 10000 Hz)</label> -->
-              <input type="range" id="eq5" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq6">Band 6 (10000 - 18000 Hz)</label> -->
-              <input type="range" id="eq6" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq3">Band 7 (400 - 1000 Hz)</label> -->
-              <input type="range" id="eq3" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq4">Band 8 (1000 - 4000 Hz)</label> -->
-              <input type="range" id="eq4" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq5">Band 9 (4000 - 10000 Hz)</label> -->
-              <input type="range" id="eq5" min="-12" max="12" step="0.1" value="0" />
-          
-              <!-- <label for="eq6">Band 10 (10000 - 18000 Hz)</label> -->
-              <input type="range" id="eq6" min="-12" max="12" step="0.1" value="0" />
-            </div>
+             <div class="player__equalizerBand">
+              <h5>60hz</h5><input type="range" id="eq1" min="-12" max="12" step="0.1" value="0" />
+            </div> 
+
+              <div class="player__equalizerBand">
+                <h5>170hz</h5><input type="range" id="eq2" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>310hz</h5><input type="range" id="eq3" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>600hz</h5><input type="range" id="eq4" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>1000hz</h5><input type="range" id="eq5" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>3000hz</h5><input type="range" id="eq6" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>6000hz</h5><input type="range" id="eq7" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>12000hz</h5><input type="range" id="eq8" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>14000hz</h5><input type="range" id="eq9" min="-12" max="12" step="0.1" value="0" />
+              </div>           
+              <div class="player__equalizerBand">
+                <h5>16000hz</h5><input type="range" id="eq10" min="-12" max="12" step="0.1" value="0" />
+              </div>             </div>
    
           </div>
         </div>

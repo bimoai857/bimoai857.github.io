@@ -11,6 +11,20 @@
         height: 50vh;
         left: 25vw;
         top: 25vh;
+        padding: 20px;
+        border-radius: 10px;
         
+    }
+    &__title{
+        color: #ff8232;
+        font-weight: bold;
+    }
+    &__edit{
+        display: block;
+        color: white;
+        background-color: #ff8232;
+        cursor: pointer;
+        border-radius: 2px;
+        padding: 8px;
     }
 }

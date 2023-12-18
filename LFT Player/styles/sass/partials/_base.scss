@@ -4,7 +4,7 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   line-height: 1.75;
-  color: green;
+
 
 }
 
@@ -26,9 +26,17 @@ button {
 input[type="range"] {
   accent-color: #ff8232;
   height: 5px;
+  width: 100%;
 }
 input[type="text"]{
   border: none;
   background-color: #121212;
   color: white;
+}
+select {
+  appearance: none;
+  border: none;  
+  background-color: #121212;
+  color:  #ff8232;
+  // height: 5px;
 }

@@ -3,6 +3,9 @@ const importAudioInput=document.getElementById('importAudioInput');
 const displayLyricsVisualizer=document.getElementById('displayLyricsVisualizer');
 const visualizerCanvas=document.getElementById('canvas1');
 const lyricsCanvas=document.getElementById('lyricsCanvas');
+const chooseLyrics=document.getElementById('chooseLyrics');
+
+
 let toggleVisualizer=true;
 
 importAudioButton.addEventListener('click',function(){
@@ -27,3 +30,12 @@ displayLyricsVisualizer.addEventListener('click',function(){
   
    
 })
+
+chooseLyrics.addEventListener('click',function(){
+    srtFile.click();
+})
+
+
+
+
+
