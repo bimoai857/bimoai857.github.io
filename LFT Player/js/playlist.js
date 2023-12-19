@@ -33,6 +33,10 @@ if (selectedTracks.length == 0) {
   exportPlaylistButton.style.display = "none";
 }
 
+/**
+ * 
+ * @param {Array} tracks 
+ */
 let renderingTracks = (tracks) => {
   tracks.forEach((track, index) => {
 
@@ -118,12 +122,24 @@ let renderingTracks = (tracks) => {
 searchBar.addEventListener("input", function (e) {
   const searchTerm = e.target.value.toLowerCase();
 
-  filteredTracks = tracks.filter((track) =>
-    track.name.toLowerCase().includes(searchTerm)
-  );
+  filteredTracks = tracks.filter((track) => {
+    const lowerCaseName = track.name.toLowerCase();
+    const lowerCaseAlbum = track.album.toLowerCase();
+    const lowerCaseGenre = track.genre.toLowerCase();
+    const lowerCaseArtist = track.artist.toLowerCase();
+
+    return (
+      lowerCaseName.includes(searchTerm) ||
+      lowerCaseAlbum.includes(searchTerm) ||
+      lowerCaseGenre.includes(searchTerm) ||
+      lowerCaseArtist.includes(searchTerm)
+    );
+  });
+
   playerTracks.innerHTML = "";
   renderingTracks(filteredTracks);
 });
+
 
 importAudioInput.addEventListener("change", function () {
   searchBar.style.display = "block";
@@ -160,7 +176,10 @@ importPlaylistInput.addEventListener("change", function () {
   equalizer.style.display='block';
  
 });
-
+/**
+ * 
+ * @param {json} playlist 
+ */
 function playPlaylist(playlist) {
 
   if (playlist && playlist.length > 0) {
@@ -192,7 +211,10 @@ function playPlaylist(playlist) {
    
   }
 }
-
+/**
+ * 
+ * @param {string} base64Data 
+ */
 function playBase64(base64Data) {
   importAudioPlayer.src = "data:audio/mp3;base64," + base64Data;
   importAudioPlayer.load();
@@ -200,6 +222,10 @@ function playBase64(base64Data) {
 
 }
 
+/**
+ * 
+ * @param {object} track 
+ */
 function toggleTrackSelection(track) {
   const index = selectedTracks.findIndex(
     (selectedTrack) => selectedTrack.url === track.url
@@ -226,7 +252,11 @@ function toggleTrackSelection(track) {
   exportPlaylistButton.style.display =
     selectedTracks.length > 0 ? "inline-block" : "none";
 }
-
+/**
+ * 
+ * @param {Array} data 
+ * @param {string} filename 
+ */
 function downloadJSON(data, filename) {
   const json = JSON.stringify(data, null, 2);
   const blob = new Blob([json], { type: "application/json" });
@@ -283,7 +313,7 @@ createPlaylistButton.addEventListener("click", function () {
 
 exportPlaylistButton.addEventListener("click", function () {
   // Export selectedTracks to JSON and initiate download
-  console.log(selectedTracks);
+
   // Create and store the playlist object
   const playlistObject = {
     name: playlistName,

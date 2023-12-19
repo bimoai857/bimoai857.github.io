@@ -10,6 +10,16 @@ window.addEventListener('load', function () {
   let audioPlayer;
 
   class Bar {
+    /**
+     * 
+     * @param {number} x 
+     * @param {number} y 
+     * @param {number} width 
+     * @param {number} height 
+     * @param {number} color 
+     * @param {number} index 
+     * @param {number} visualizer 
+     */
     constructor(x, y, width, height, color, index, visualizer) {
       this.x = x;
       this.y = y;
@@ -19,7 +29,10 @@ window.addEventListener('load', function () {
       this.index = index;
       this.visualizer = visualizer;
     }
-
+    /**
+     * 
+     * @param {number} audioInput 
+     */
     update(audioInput) {
       const sound = audioInput * 1000;
       if (sound > this.height) {
@@ -28,7 +41,10 @@ window.addEventListener('load', function () {
         this.height -= this.height * 0.03;
       }
     }
-
+    /**
+     * 
+     * @param {object} context 
+     */
     draw(context) {
       context.strokeStyle = this.color;
       context.lineWidth = this.width;
@@ -102,6 +118,13 @@ window.addEventListener('load', function () {
   }
 
   class AudioPlayer {
+    /**
+     * 
+     * @param {InputEvent} audioElement 
+     * @param {number} fftSize 
+     * @param {object} audioContext 
+     * @param {object} source 
+     */
     constructor(audioElement, fftSize, audioContext, source) {
       this.audioElement = audioElement;
       this.audioContext = audioContext;
@@ -131,7 +154,10 @@ window.addEventListener('load', function () {
       return volume;
     }
   }
-
+/**
+ * 
+ * @param {number} selectedValue 
+ */
   function createBars(selectedValue) {
     for (let i = 1; i < fftSize / 2; i++) {
       let color = 'hsl(' + 100 + i * 2 + ',100%,50%)';
@@ -142,7 +168,10 @@ window.addEventListener('load', function () {
   function clearBars() {
     bars = [];
   }
-
+/**
+ * 
+ * @param {number} selectedValue 
+ */
   function init(selectedValue) {
     clearBars();
     createBars(selectedValue);
@@ -157,11 +186,7 @@ window.addEventListener('load', function () {
       animate();
     });
 
-    window.addEventListener('resize', function () {
-      // Handle window resize if needed
-      // canvas.width = window.innerWidth;
-      // canvas.height = window.innerHeight;
-    });
+  
   }
 
   function animate() {

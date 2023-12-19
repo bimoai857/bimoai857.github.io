@@ -12,7 +12,10 @@ let lyrics = [];
 const canvas = document.getElementById('lyricsCanvas');
 
 
-
+/**
+ * 
+ * @param {Event} event 
+ */
 function handleAudioFile(event) {
   const file = event.target.files[0];
     
@@ -29,7 +32,10 @@ function handleAudioFile(event) {
   }
 
 }
-
+/**
+ * 
+ * @param {Event} event 
+ */
 function handleSrtFile(event) {
   const file = event.target.files[0];
 
@@ -45,7 +51,11 @@ function handleSrtFile(event) {
     reader.readAsText(file);
   }
 }
-
+/**
+ * 
+ * @param {string} srtContent 
+ * @returns 
+ */
 function parseSrt(srtContent) {
 const lines = srtContent.split(/\r?\n/);
 const parsedLyrics = [];
@@ -123,7 +133,11 @@ function drawLyrics() {
     }
   });
 }
-
+/**
+ * 
+ * @param {number} time 
+ * @returns 
+ */
 function convertTimeToSeconds(time) {
   if (!time) {
     return 0;

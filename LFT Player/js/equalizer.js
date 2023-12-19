@@ -1,6 +1,12 @@
 let audioContext;
 let source;
 class AudioProcessor {
+    /**
+     * 
+     * @param {string} audioElementId 
+     * @param {string} importAudio 
+     * @param {string} importPlaylist 
+     */
     constructor(audioElementId, importAudio,importPlaylist) {
       this.audioElement = document.getElementById(audioElementId);
       this.importAudio = document.getElementById(importAudio);
@@ -50,7 +56,10 @@ class AudioProcessor {
   
       this.audioElement.addEventListener("loadeddata", () => source.connect(this.biquadFilters[0]));
     }
-  
+  /**
+   * 
+   * @param {number} index 
+   */
     handleSliderInput(index) {
       const gainNode = this.gainNodes[index];
       const slider = this.sliders[index];

@@ -52,7 +52,7 @@ importAudioInput.addEventListener("change", function () {
   reader.readAsDataURL(file[0]);
 
   tracks.push(track);
-  console.log(tracks);
+
 
   // Play the latest track by default
   if (tracks.length > 0) {
