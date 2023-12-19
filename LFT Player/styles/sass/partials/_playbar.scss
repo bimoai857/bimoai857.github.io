@@ -9,7 +9,7 @@
     &__circle{
         position: absolute;
         border-radius: 8px;
-        background-color: #ff8232;
+        background-color: $primary-color;
         height: 14px;
         width: 14px;
         top: -4px;
@@ -66,7 +66,7 @@
 #progress{
     width: 0;
     height: 100%;
-    background: #ff8232;
+    background: $primary-color;
     transition: width 0.3 ease-out;
     border-radius: 2px;
 }
@@ -86,6 +86,6 @@
     font-size: 25px;
 }
 #playButton{
-    color: #ff8232;
+    color: $primary-color;
     font-size: 35px;
 }

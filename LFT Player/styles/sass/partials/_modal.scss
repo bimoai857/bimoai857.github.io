@@ -16,13 +16,13 @@
         display: none;
     }
     &__title{
-        color: #ff8232;
+        color: $primary-color;
         font-weight: bold;
     }
     &__edit{
         display: block;
         color: white;
-        background-color: #ff8232;
+        background-color: $primary-color;
         cursor: pointer;
         border-radius: 2px;
         padding: 8px;
