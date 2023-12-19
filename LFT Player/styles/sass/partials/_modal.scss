@@ -3,7 +3,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgb(49, 44, 44, 0.2);
-    
+    display: none;
     &__form{
         position: absolute;
         background-color: white;
@@ -13,7 +13,7 @@
         top: 25vh;
         padding: 20px;
         border-radius: 10px;
-        
+        display: none;
     }
     &__title{
         color: #ff8232;

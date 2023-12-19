@@ -1,25 +1,21 @@
+// EVENT LISTENER FOR WHEN THE WINDOW HAS FINISHED LOADING
 window.addEventListener('load', function () {
+  // GET CANVAS AND ITS CONTEXT
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
+
+  // GET HTML ELEMENTS
   const importAudioPlayer = document.getElementById('importAudioPlayer');
   const visualizerSelect = document.getElementById('visualizerSelect');
 
+  // INITIAL SETTINGS
   let fftSize = 512;
   let bars = [];
   let softVolume = 0;
   let audioPlayer;
 
+  // BAR CLASS FOR VISUALIZING AUDIO
   class Bar {
-    /**
-     * 
-     * @param {number} x 
-     * @param {number} y 
-     * @param {number} width 
-     * @param {number} height 
-     * @param {number} color 
-     * @param {number} index 
-     * @param {number} visualizer 
-     */
     constructor(x, y, width, height, color, index, visualizer) {
       this.x = x;
       this.y = y;
@@ -29,10 +25,8 @@ window.addEventListener('load', function () {
       this.index = index;
       this.visualizer = visualizer;
     }
-    /**
-     * 
-     * @param {number} audioInput 
-     */
+
+    // UPDATE THE BAR HEIGHT BASED ON AUDIO INPUT
     update(audioInput) {
       const sound = audioInput * 1000;
       if (sound > this.height) {
@@ -41,10 +35,8 @@ window.addEventListener('load', function () {
         this.height -= this.height * 0.03;
       }
     }
-    /**
-     * 
-     * @param {object} context 
-     */
+
+    // DRAW THE BAR ON THE CANVAS
     draw(context) {
       context.strokeStyle = this.color;
       context.lineWidth = this.width;
@@ -117,32 +109,28 @@ window.addEventListener('load', function () {
     }
   }
 
+  // AUDIOPLAYER CLASS FOR MANAGING AUDIO INPUT AND ANALYSIS
   class AudioPlayer {
-    /**
-     * 
-     * @param {InputEvent} audioElement 
-     * @param {number} fftSize 
-     * @param {object} audioContext 
-     * @param {object} source 
-     */
-    constructor(audioElement, fftSize, audioContext, source) {
+    constructor(audioElement, fftSize, audioContext, audioSource) {
       this.audioElement = audioElement;
       this.audioContext = audioContext;
       this.analyser = this.audioContext.createAnalyser();
       this.analyser.fftSize = fftSize;
       const bufferLength = this.analyser.frequencyBinCount;
       this.dataArray = new Uint8Array(bufferLength);
-      this.source = source;
-      this.source.connect(this.analyser);
+      this.audioSource = audioSource;
+      this.audioSource.connect(this.analyser);
       this.analyser.connect(this.audioContext.destination);
     }
 
+    // GET NORMALIZED AUDIO SAMPLES
     getSamples() {
       this.analyser.getByteTimeDomainData(this.dataArray);
       let normSamples = [...this.dataArray].map((e) => e / 128 - 1);
       return normSamples;
     }
 
+    // GET VOLUME LEVEL
     getVolume() {
       this.analyser.getByteTimeDomainData(this.dataArray);
       let normSamples = [...this.dataArray].map((e) => e / 128 - 1);
@@ -154,10 +142,8 @@ window.addEventListener('load', function () {
       return volume;
     }
   }
-/**
- * 
- * @param {number} selectedValue 
- */
+
+  // FUNCTION TO CREATE BARS BASED ON SELECTED VISUALIZER
   function createBars(selectedValue) {
     for (let i = 1; i < fftSize / 2; i++) {
       let color = 'hsl(' + 100 + i * 2 + ',100%,50%)';
@@ -165,30 +151,29 @@ window.addEventListener('load', function () {
     }
   }
 
+  // FUNCTION TO CLEAR BARS
   function clearBars() {
     bars = [];
   }
-/**
- * 
- * @param {number} selectedValue 
- */
+
+  // FUNCTION TO INITIALIZE AUDIO AND BARS
   function init(selectedValue) {
     clearBars();
     createBars(selectedValue);
 
+    // EVENT LISTENER FOR WHEN AUDIO IS LOADED
     importAudioPlayer.addEventListener('loadeddata', function () {
       audioPlayer = new AudioPlayer(
         importAudioPlayer,
         fftSize,
         audioContext,
-        source
+        audioSource
       );
       animate();
     });
-
-  
   }
 
+  // ANIMATION LOOP
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -211,8 +196,10 @@ window.addEventListener('load', function () {
     }
   }
 
+  // INITIAL SETUP WITH VISUALIZER TYPE 1
   init(1);
 
+  // EVENT LISTENER FOR VISUALIZER SELECTION CHANGE
   visualizerSelect.addEventListener('change', function () {
     let selectedValue = visualizerSelect.value;
     init(Number(selectedValue));

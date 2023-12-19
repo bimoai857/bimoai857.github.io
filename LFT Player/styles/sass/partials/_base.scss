@@ -4,8 +4,6 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   line-height: 1.75;
-
-
 }
 
 a {
@@ -15,10 +13,10 @@ a {
 
 button {
   appearance: none;
-  border: none;  
+  border: none;
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -28,20 +26,19 @@ input[type="range"] {
   height: 5px;
   width: 100%;
 }
-input[type="text"]{
+input[type="text"] {
   border: none;
   background-color: #121212;
   color: white;
 }
 select {
   appearance: none;
-  border: none;  
+  border: none;
   background-color: #121212;
-  color:  #ff8232;
+  color: #ff8232;
   // height: 5px;
 }
 canvas {
-        
   display: block;
   margin: 20px auto;
 }

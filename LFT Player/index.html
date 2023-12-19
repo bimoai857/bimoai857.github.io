@@ -1,187 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LFT Player</title>
-    <link href="./styles/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-       canvas {
-        
-        display: block;
-        margin: 20px auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="modal" style="display: none">    
-    </div>
-    <div class="modal__form" style="display: none">
-       <div class="modal__title">Song: </div> 
-       <h3 class="modal__trackName"></h3>
-       <div class="modal__title"> Album:</div>
-       <input class="modal__album"/>
-       <div class="modal__title">Genre:</div>
-       <input class="modal__genre"/>
-        <div class="modal__title">Artist:</div>
-        <input class="modal__artist"/>
-        <button class="modal__edit">Edit</button>
-        
-    </div>
-    <header class="header">
-      <div class="container">
-        <nav class="header__links">
-          <input type="file" id="importAudioInput" accept="audio/*" hidden />
-          <button class="header__button" id="importAudioButton">
-            Import Audio
-          </button>
-          <input type="file" id="importPlaylistInput" accept=".json" hidden />
-          <button class="header__button" id="importPlaylistButton">
-            Import Playlist
-            </button>
-            <select id="visualizerSelect" name="visualizer">
-              <option value="1">Visualizer 1</option>
-              <option value="2">visualizer 2</option>
-              <option value="3">visualizer 3</option>
-              <option value="4">visualizer 4</option>
-              <!-- Add more options as needed -->
-            </select>
-          <button class="header__button" id="displayLyricsVisualizer">
-            Display Lyrics
-          </button>
-          <button class="header__button" id="chooseLyrics">
-            Import Lyrics
-          </button>
-       <input
-        type="file"
-        id="srtFile"
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LFT Player</title>
+  <link href="./styles/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <div class="modal">
+  </div>
+  <div class="modal__form">
+    <div class="modal__title">Song: </div>
+    <h3 class="modal__trackName"></h3>
+    <div class="modal__title"> Album:</div>
+    <input class="modal__album" />
+    <div class="modal__title">Genre:</div>
+    <input class="modal__genre" />
+    <div class="modal__title">Artist:</div>
+    <input class="modal__artist" />
+    <button class="modal__edit">Edit</button>
+
+  </div>
+  <header class="header">
+    <div class="container">
+      <nav class="header__links">
+        <input type="file" id="importAudioInput" accept="audio/*" hidden />
+        <button class="header__button" id="importAudioButton">
+          Import Audio
+        </button>
+        <input type="file" id="importPlaylistInput" accept=".json" hidden />
+        <button class="header__button" id="importPlaylistButton">
+          Import Playlist
+        </button>
+        <select id="visualizerSelect" name="visualizer">
+          <option value="1">Visualizer  1</option>
+          <option value="2">Visualizer  2</option>
+          <option value="3">Visualizer  3</option>
+          <option value="4">Visualizer  4</option>
        
-        accept=".srt"
-        hidden
-      />
-          
-        </nav>
-      </div>
-    </header>
-    <main class="player">
-      <div class="container">
-        <div class="player__content">
+        </select>
+        <button class="header__button" id="displayLyricsVisualizer">
+          Display Lyrics
+        </button>
+        <button class="header__button" id="chooseLyrics">
+          Import Lyrics
+        </button>
+        <input type="file" id="srtFile" accept=".srt" hidden />
+
+      </nav>
+    </div>
+  </header>
+  <main class="player">
+    <div class="container">
+      <div class="player__content">
 
 
-          <div class="player__playlistContainer" style="display: none;">
-            <div class="card">
-              <div class="player__playlist">
-                <input placeholder="Enter an album,artist or track" class="searchBar" type="text"/>
-                <div class="player__playlistButton">
-                  <button id="createPlaylistButton" >
-                    Create Playlist
-                  </button>
-                  <button id="exportPlaylistButton" >
-                    Export Playlist
-                  </button>
-                </div>
-              
-                  <div id="playlistTitle"></div>
-                  <div id="player__tracks">
-                  </div> 
-                  
+        <div class="player__playlistContainer" >
+          <div class="card">
+            <div class="player__playlist">
+              <input placeholder="Enter an album,artist or track" class="searchBar" type="text" />
+              <div class="player__playlistButton">
+                <button id="createPlaylistButton">
+                  Create Playlist
+                </button>
+                <button id="exportPlaylistButton">
+                  Export Playlist
+                </button>
               </div>
-            
+
+              <div id="playlistTitle"></div>
+              <div id="player__tracks">
+              </div>
+
+            </div>
+
           </div>
-          </div>
+        </div>
 
 
-          <div class="player__visualizer">
-            <canvas id="canvas1" width="1100" height="550"></canvas>
-            <canvas id="lyricsCanvas" width="1100" height="550" style="display: none;" ></canvas>
-          </div>
-                
-         
-          <div class="player__equalizer"  style="display: none;">
-            <div class="card card__equalizer">
+        <div class="player__visualizer">
+          <canvas id="canvas1" width="1100" height="550"></canvas>
+          <canvas id="lyricsCanvas" width="1100" height="550" ></canvas>
+        </div>
 
-             <div class="player__equalizerBand">
+
+        <div class="player__equalizer" style="display: none;">
+          <div class="card card__equalizer">
+
+            <div class="player__equalizerBand">
               <h5>60hz</h5><input type="range" id="eq1" min="-12" max="12" step="0.1" value="0" />
-            </div> 
+            </div>
 
-              <div class="player__equalizerBand">
-                <h5>170hz</h5><input type="range" id="eq2" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>310hz</h5><input type="range" id="eq3" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>600hz</h5><input type="range" id="eq4" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>1000hz</h5><input type="range" id="eq5" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>3000hz</h5><input type="range" id="eq6" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>6000hz</h5><input type="range" id="eq7" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>12000hz</h5><input type="range" id="eq8" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>14000hz</h5><input type="range" id="eq9" min="-12" max="12" step="0.1" value="0" />
-              </div>           
-              <div class="player__equalizerBand">
-                <h5>16000hz</h5><input type="range" id="eq10" min="-12" max="12" step="0.1" value="0" />
-              </div>             </div>
-   
+            <div class="player__equalizerBand">
+              <h5>170hz</h5><input type="range" id="eq2" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>310hz</h5><input type="range" id="eq3" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>600hz</h5><input type="range" id="eq4" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>1000hz</h5><input type="range" id="eq5" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>3000hz</h5><input type="range" id="eq6" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>6000hz</h5><input type="range" id="eq7" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>12000hz</h5><input type="range" id="eq8" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>14000hz</h5><input type="range" id="eq9" min="-12" max="12" step="0.1" value="0" />
+            </div>
+            <div class="player__equalizerBand">
+              <h5>16000hz</h5><input type="range" id="eq10" min="-12" max="12" step="0.1" value="0" />
+            </div>
           </div>
+
         </div>
       </div>
-    </main>
-    <footer class="playbar">
-      <div class="container">
-        <div class="playbar__content">
-          <div class="playbar__navigationContainer">
-            <div class="playbar__navigation">
+    </div>
+  </main>
+  <footer class="playbar">
+    <div class="container">
+      <div class="playbar__content">
+        <div class="playbar__navigationContainer">
+          <div class="playbar__navigation">
 
-               <i class="fa-solid fa-backward" style="color: aliceblue; font-size: 25px;" id="playBackward"></i></i>
+            <i class="fa-solid fa-backward" id="playBackward"></i></i>
 
-          <i class="fa-solid fa-circle-play " style="color: #ff8232; font-size: 35px;" id="playButton"></i>
-           <i class="fa-solid fa-forward" style="color: aliceblue; font-size: 25px;" id="playForward"></i>
-            </div>
-            
+            <i class="fa-solid fa-circle-play "  id="playButton"></i>
+            <i class="fa-solid fa-forward"  id="playForward"></i>
           </div>
 
-          <div class="playbar__progressContent">
-            <div class="playbar__timeProgress"></div>
-            <div class="playbar__progressContainer">
-              <div class="playbar__progress" id="progress">    <div class="playbar__circle" id="circle"></div></div>
-          
+        </div>
+
+        <div class="playbar__progressContent">
+          <div class="playbar__timeProgress"></div>
+          <div class="playbar__progressContainer">
+            <div class="playbar__progress" id="progress">
+              <div class="playbar__circle" id="circle"></div>
             </div>
-            <div class="playbar__duration"></div>
+
           </div>
-          <div class="playbar__soundSpeed">
-            <div class="speed">
-             
-              <input type="range" id="speedControl" min="0.5" max="2" step="0.1" value="1" />
-              <div id="speedValue">1x</div>
-            </div>
-           <div class="sound">
-          
+          <div class="playbar__duration"></div>
+        </div>
+        <div class="playbar__soundSpeed">
+          <div class="speed">
+
+            <input type="range" id="speedControl" min="0.5" max="2" step="0.1" value="1" />
+            <div id="speedValue">1x</div>
+          </div>
+          <div class="sound">
+
             <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" />
-            <div id="volumeValue" >50%</div>
+            <div id="volumeValue">50%</div>
 
-           </div>
-            
           </div>
-          <audio id="importAudioPlayer" hidden></audio>
+
         </div>
+        <audio id="importAudioPlayer" hidden></audio>
       </div>
-    </footer>
-    <script src="./js/header.js"></script>
-    <script src="./js/playbar.js"></script>
-    <script src="./js/visualizer.js"></script>
-    <script src="./js/playlist.js"></script>
-    <script src="./js/equalizer.js"></script>
-    <script src="./js/lyrics.js"></script>
-  </body>
+    </div>
+  </footer>
+  <script src="./js/header.js"></script>
+  <script src="./js/playbar.js"></script>
+  <script src="./js/visualizer.js"></script>
+  <script src="./js/playlist.js"></script>
+  <script src="./js/equalizer.js"></script>
+  <script src="./js/lyrics.js"></script>
+</body>
+
 </html>

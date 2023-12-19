@@ -1,3 +1,4 @@
+// DOM elements
 const playerTracks = document.getElementById("player__tracks");
 const createPlaylistButton = document.getElementById("createPlaylistButton");
 const exportPlaylistButton = document.getElementById("exportPlaylistButton");
@@ -15,17 +16,19 @@ const srtFile = document.querySelector("#srtFile");
 const searchBar = document.querySelector(".searchBar");
 const selectDetails = document.getElementById("player__selectDetails");
 
-
+// Tracks and playlist-related variables
 let filteredTracks = [];
 let selectedTracks = [];
 let jsonFile = [];
 let selectButtonsVisible = false;
-let currentTrack=0;
+let currentTrack = 0;
 
+// Edit data object to store track details for editing
 const editData = { artist: "", album: "", genre: "", lyrics: "" };
 
 let playlistName;
 
+// Initial visibility setup for buttons based on tracks and selected tracks
 if (tracks.length == 0) {
   createPlaylistButton.style.display = "none";
 }
@@ -34,13 +37,12 @@ if (selectedTracks.length == 0) {
 }
 
 /**
- * 
- * @param {Array} tracks 
+ * Function to render tracks
+ * @param {Array} tracks
  */
 let renderingTracks = (tracks) => {
   tracks.forEach((track, index) => {
-
-   
+    // Create track element
     const trackElement = document.createElement("div");
     const content = document.createElement("h5");
 
@@ -49,51 +51,53 @@ let renderingTracks = (tracks) => {
     trackElement.appendChild(content);
     playerTracks.appendChild(trackElement);
 
+    // Event listener for playing the track
     content.addEventListener("click", function () {
-      
-     
-      currentTrack=index;
+      currentTrack = index;
       if (track.base64) {
         playBase64(track.base64);
-      }
-      else{
+      } else {
         importAudioPlayer.src = track.url;
         importAudioPlayer.load();
         importAudioPlayer.play();
       }
-  
-     
     });
 
+    // Select and Details buttons
     var trackButton = document.createElement("button");
     trackButton.textContent = "Select";
     trackButton.style.display = "none";
     trackButton.style.background = "#121212";
     trackButton.style.color = "#389638";
 
+    // Event listener for selecting the track
     trackButton.addEventListener("click", function (event) {
       toggleTrackSelection(track);
     });
 
+    // Details button
     const detailsButton = document.createElement("button");
     detailsButton.textContent = "Details";
     detailsButton.style.background = "#121212";
     detailsButton.style.color = "#FF8232";
-
     detailsButton.id = index;
 
+    // CONTAINER FOR BUTTONS
     const buttonContainer = document.createElement("div");
     buttonContainer.appendChild(detailsButton);
     buttonContainer.appendChild(trackButton);
     buttonContainer.classList.add("player__button");
 
+    // EVENT LISTENER FOR OPENING DETAILS MODAL
     detailsButton.addEventListener("click", function (event) {
+      // POPULATE DETAILS IN THE MODAL
       modalTrackName.innerHTML = tracks[event.target.id]["name"];
       modalTrackName.style.color = "#121212";
       modalAlbum.value = tracks[event.target.id]["album"];
       modalGenre.value = tracks[event.target.id]["genre"];
       modalArtist.value = tracks[event.target.id]["artist"];
 
+      // EVENT LISTENERS FOR EDITING DETAILS
       modalAlbum.addEventListener("change", function (e) {
         editData["album"] = e.target.value;
       });
@@ -104,24 +108,28 @@ let renderingTracks = (tracks) => {
         editData["artist"] = e.target.value;
       });
 
+      // SHOW MODAL
       modal.style.display = "block";
-
       modalForm.style.display = "block";
-
       modalEdit.id = event.target.id;
+
+      // CLOSE MODAL ON CLICK OUTSIDE
       modal.addEventListener("click", function () {
         modal.style.display = "none";
         modalForm.style.display = "none";
       });
     });
 
+    // APPEND BUTTONS TO THE TRACK ELEMENT
     trackElement.appendChild(buttonContainer);
   });
 };
 
+// EVENT LISTENER FOR SEARCH BAR INPUT
 searchBar.addEventListener("input", function (e) {
   const searchTerm = e.target.value.toLowerCase();
 
+  // FILTER TRACKS BASED ON SEARCH TERM
   filteredTracks = tracks.filter((track) => {
     const lowerCaseName = track.name.toLowerCase();
     const lowerCaseAlbum = track.album.toLowerCase();
@@ -136,24 +144,28 @@ searchBar.addEventListener("input", function (e) {
     );
   });
 
+  // CLEAR AND RENDER TRACKS BASED ON THE FILTERED LIST
   playerTracks.innerHTML = "";
   renderingTracks(filteredTracks);
 });
 
-
+// EVENT LISTENER FOR AUDIO INPUT CHANGE
 importAudioInput.addEventListener("change", function () {
   searchBar.style.display = "block";
   playerTracks.innerHTML = "";
 
+  // CLEAR AND RENDER TRACKS BASED ON THE FULL TRACK LIST
   renderingTracks(tracks);
 });
 
+// EVENT LISTENER FOR PLAYLIST IMPORT BUTTON
 importPlaylistButton.addEventListener("click", function () {
   importPlaylistInput.click();
 });
 
+// EVENT LISTENER FOR PLAYLIST IMPORT INPUT
 importPlaylistInput.addEventListener("change", function () {
-  currentTrack=0;
+  currentTrack = 0;
   const file = this.files[0];
 
   if (file) {
@@ -162,36 +174,36 @@ importPlaylistInput.addEventListener("change", function () {
     reader.onload = function (e) {
       const importedTracks = JSON.parse(e.target.result);
 
+      // PLAY THE IMPORTED PLAYLIST
       playPlaylist(importedTracks);
     };
 
     reader.readAsText(file);
   }
 
+  // SET BUTTON STATES FOR VISIBILITY
   playButton.classList.remove("fa-circle-play");
   playButton.classList.add("fa-pause");
-
-   
-  playlist.style.display='block';
-  equalizer.style.display='block';
- 
+  playlist.style.display = 'block';
+  equalizer.style.display = 'block';
 });
+
 /**
- * 
- * @param {json} playlist 
+ * FUNCTION TO PLAY A PLAYLIST
+ * @param {json} playlist
  */
 function playPlaylist(playlist) {
-
   if (playlist && playlist.length > 0) {
-    // Stop the current playback if any
+    // STOP THE CURRENT PLAYBACK IF ANY
     importAudioPlayer.pause();
 
-    // Clear existing tracks
+    // CLEAR EXISTING TRACKS
     tracks = [];
     playlistTitle.innerHTML = playlist[0]["name"];
     playlistTitle.style.color = "#ff8232";
     playlistTitle.style.cursor = "pointer";
 
+    // ADD IMPORTED TRACKS TO THE TRACKS ARRAY
     playlist[0]["tracks"].forEach((importedTrack) => {
       const track = {
         name: importedTrack.name,
@@ -204,35 +216,37 @@ function playPlaylist(playlist) {
 
       tracks.push(track);
     });
+
+    // RENDER THE IMPORTED TRACKS
     renderingTracks(tracks);
 
+    // PLAY THE FIRST TRACK IN THE IMPORTED PLAYLIST
     const firstTrack = tracks[0];
     playBase64(firstTrack.base64);
-   
   }
 }
+
 /**
- * 
- * @param {string} base64Data 
+ * FUNCTION TO PLAY A BASE64-ENCODED TRACK
+ * @param {string} base64Data
  */
 function playBase64(base64Data) {
   importAudioPlayer.src = "data:audio/mp3;base64," + base64Data;
   importAudioPlayer.load();
   importAudioPlayer.play();
-
 }
 
 /**
- * 
- * @param {object} track 
+ * FUNCTION TO TOGGLE THE SELECTION OF A TRACK
+ * @param {object} track
  */
 function toggleTrackSelection(track) {
   const index = selectedTracks.findIndex(
     (selectedTrack) => selectedTrack.url === track.url
   );
-  console.log(track);
+
   if (index === -1) {
-    // Track not in selectedTracks, add it
+    // TRACK NOT IN SELECTEDTRACKS, ADD IT
     selectedTracks.push({
       name: track.name,
       base64: track.base64,
@@ -243,19 +257,20 @@ function toggleTrackSelection(track) {
     });
     console.log(`Track ${track.name} selected`);
   } else {
-    // Track already in selectedTracks, remove it
+    // TRACK ALREADY IN SELECTEDTRACKS, REMOVE IT
     selectedTracks.splice(index, 1);
     console.log(`Track ${track.name} deselected`);
   }
 
-  // Show/Hide "Export Playlist" button based on whether any track is selected
+  // SHOW/HIDE "EXPORT PLAYLIST" BUTTON BASED ON WHETHER ANY TRACK IS SELECTED
   exportPlaylistButton.style.display =
     selectedTracks.length > 0 ? "inline-block" : "none";
 }
+
 /**
- * 
- * @param {Array} data 
- * @param {string} filename 
+ * FUNCTION TO DOWNLOAD JSON DATA AS A FILE
+ * @param {Array} data
+ * @param {string} filename
  */
 function downloadJSON(data, filename) {
   const json = JSON.stringify(data, null, 2);
@@ -271,6 +286,7 @@ function downloadJSON(data, filename) {
   URL.revokeObjectURL(url);
 }
 
+// EVENT LISTENER FOR PLAYLIST TITLE CLICK TO TOGGLE PLAYLIST VISIBILITY
 playlistTitle.addEventListener("click", togglePlaylistVisibility);
 
 function togglePlaylistVisibility() {
@@ -278,21 +294,27 @@ function togglePlaylistVisibility() {
     playerTracks.style.display === "none" ? "block" : "none";
 }
 
+// EVENT LISTENER FOR MODAL EDIT BUTTON
 modalEdit.addEventListener("click", editButton);
 
 function editButton(e) {
+  // UPDATE THE TRACK DETAILS WITH EDITED DATA
   tracks[e.target.id]["genre"] = editData["genre"];
   tracks[e.target.id]["artist"] = editData["artist"];
   tracks[e.target.id]["album"] = editData["album"];
   tracks[e.target.id]["lyrics"] = editData["lyrics"];
+
+  // CLOSE THE MODAL
   modal.click();
 }
+
+// EVENT LISTENER FOR CREATE PLAYLIST BUTTON
 createPlaylistButton.addEventListener("click", function () {
-  // Ask for the playlist name
+  // ASK FOR THE PLAYLIST NAME
   playlistName = prompt("Enter Playlist Name:");
 
   if (playlistName) {
-    // Toggle the visibility of "Select" buttons for all tracks
+    // TOGGLE THE VISIBILITY OF "SELECT" BUTTONS FOR ALL TRACKS
     const trackElements = document.querySelectorAll("#player__tracks div ");
 
     selectButtonsVisible = !selectButtonsVisible;
@@ -305,16 +327,17 @@ createPlaylistButton.addEventListener("click", function () {
       selectButton.style.display = "block";
     });
 
-    // Show/Hide "Export Playlist" button based on whether any track is selected
+    // SHOW/HIDE "EXPORT PLAYLIST" BUTTON BASED ON WHETHER ANY TRACK IS SELECTED
     exportPlaylistButton.style.display =
       selectedTracks.length > 0 ? "inline-block" : "none";
   }
 });
 
+// Event listener for export playlist button
 exportPlaylistButton.addEventListener("click", function () {
   // Export selectedTracks to JSON and initiate download
 
-  // Create and store the playlist object
+  // CREATE AND STORE THE PLAYLIST OBJECT
   const playlistObject = {
     name: playlistName,
     tracks: selectedTracks.map((selectedTrack) => ({
@@ -327,8 +350,9 @@ exportPlaylistButton.addEventListener("click", function () {
     })),
   };
 
-  // Add the playlist to the tracks array (if you need it)
+  // ADD THE PLAYLIST TO THE JSONFILE ARRAY (IF NEEDED)
   jsonFile.push(playlistObject);
+
+  // DOWNLOAD THE JSON FILE
   downloadJSON(jsonFile, "playlist.json");
 });
-

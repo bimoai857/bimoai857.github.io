@@ -368,6 +368,11 @@ select {
   color: #ff8232;
 }
 
+canvas {
+  display: block;
+  margin: 20px auto;
+}
+
 .container {
   padding: 0 30px;
   height: 100%;
@@ -467,11 +472,22 @@ select {
   color: white;
 }
 
+#playBackward, #playForward {
+  color: aliceblue;
+  font-size: 25px;
+}
+
+#playButton {
+  color: #ff8232;
+  font-size: 35px;
+}
+
 .modal {
   position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: rgba(49, 44, 44, 0.2);
+  display: none;
 }
 .modal__form {
   position: absolute;
@@ -482,6 +498,7 @@ select {
   top: 25vh;
   padding: 20px;
   border-radius: 10px;
+  display: none;
 }
 .modal__title {
   color: #ff8232;
@@ -512,6 +529,7 @@ select {
   justify-content: space-between;
 }
 .player__playlistContainer {
+  display: none;
   background: "#121212";
   height: 100%;
   flex: 1;
@@ -528,6 +546,7 @@ select {
 }
 .player__equalizer {
   background: black;
+  display: none;
   flex: 1;
   height: 100%;
   display: flex;
@@ -575,6 +594,10 @@ select {
 h5 {
   background-color: #121212;
   color: white;
+}
+
+#lyricsCanvas {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

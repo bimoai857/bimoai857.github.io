@@ -13,6 +13,7 @@
         justify-content: space-between;
     }
     &__playlistContainer{
+        display: none;
         background: '#121212';
         height: 100%;
         flex: 1;
@@ -31,6 +32,7 @@
     }
     &__equalizer{
         background: black;
+        display: none;
         flex: 1;
         height: 100%;
         display: flex;
@@ -85,4 +87,7 @@
 h5{
     background-color: #121212;
     color: white;
+}
+#lyricsCanvas{
+    display: none;
 }
