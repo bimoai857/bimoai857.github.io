@@ -1,3 +1,4 @@
+
 // DOM elements
 const playerTracks = document.getElementById("player__tracks");
 const createPlaylistButton = document.getElementById("createPlaylistButton");
@@ -15,20 +16,24 @@ const modalTrackName = document.querySelector(".modal__trackName");
 const srtFile = document.querySelector("#srtFile");
 const searchBar = document.querySelector(".searchBar");
 const selectDetails = document.getElementById("player__selectDetails");
+const bands= document.querySelectorAll(".band");
+const speed= document.getElementById("speedControl");
+const volume= document.getElementById("volumeControl");
 
-// Tracks and playlist-related variables
+
+// TRACKS AND PLAYLIST-RELATED VARIABLES
 let filteredTracks = [];
 let selectedTracks = [];
 let jsonFile = [];
 let selectButtonsVisible = false;
 let currentTrack = 0;
 
-// Edit data object to store track details for editing
-const editData = { artist: "", album: "", genre: "", lyrics: "" };
+// EDIT DATA OBJECT TO STORE TRACK DETAILS FOR EDITING
+const editData = { artist: "", album: "", genre: "" };
 
 let playlistName;
 
-// Initial visibility setup for buttons based on tracks and selected tracks
+// INITIAL VISIBILITY SETUP FOR BUTTONS BASED ON TRACKS AND SELECTED TRACKS
 if (tracks.length == 0) {
   createPlaylistButton.style.display = "none";
 }
@@ -37,12 +42,12 @@ if (selectedTracks.length == 0) {
 }
 
 /**
- * Function to render tracks
+ * FUNCTION TO RENDER TRACKS
  * @param {Array} tracks
  */
 let renderingTracks = (tracks) => {
   tracks.forEach((track, index) => {
-    // Create track element
+    // CREATE TRACK ELEMENT
     const trackElement = document.createElement("div");
     const content = document.createElement("h5");
 
@@ -51,8 +56,18 @@ let renderingTracks = (tracks) => {
     trackElement.appendChild(content);
     playerTracks.appendChild(trackElement);
 
-    // Event listener for playing the track
+    // EVENT LISTENER FOR PLAYING THE TRACK
     content.addEventListener("click", function () {
+
+      // Resetting bands,speed and VOLUME
+      bands.forEach((band) => {
+        band.value = 0;
+      });
+      speed.value=1;
+      volume.value=0.5;
+      speedValue.innerHTML='1x';
+      volumeValue.innerHTML='50%'
+
       currentTrack = index;
       if (track.base64) {
         playBase64(track.base64);
@@ -63,14 +78,14 @@ let renderingTracks = (tracks) => {
       }
     });
 
-    // Select and Details buttons
+    // SELECT AND DETAILS BUTTONS
     var trackButton = document.createElement("button");
     trackButton.textContent = "Select";
     trackButton.style.display = "none";
     trackButton.style.background = "#121212";
     trackButton.style.color = "#389638";
 
-    // Event listener for selecting the track
+    // EVENT LISTENER FOR SELECTING THE TRACK
     trackButton.addEventListener("click", function (event) {
       toggleTrackSelection(track);
     });
@@ -302,7 +317,7 @@ function editButton(e) {
   tracks[e.target.id]["genre"] = editData["genre"];
   tracks[e.target.id]["artist"] = editData["artist"];
   tracks[e.target.id]["album"] = editData["album"];
-  tracks[e.target.id]["lyrics"] = editData["lyrics"];
+  
 
   // CLOSE THE MODAL
   modal.click();
@@ -346,7 +361,7 @@ exportPlaylistButton.addEventListener("click", function () {
       artist: selectedTrack.artist,
       genre: selectedTrack.genre,
       album: selectedTrack.album,
-      lyrics: selectedTrack.lyrics,
+     
     })),
   };
 
