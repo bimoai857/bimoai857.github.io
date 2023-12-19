@@ -1,4 +1,3 @@
-
 // DOM elements
 const playerTracks = document.getElementById("player__tracks");
 const createPlaylistButton = document.getElementById("createPlaylistButton");
@@ -16,10 +15,9 @@ const modalTrackName = document.querySelector(".modal__trackName");
 const srtFile = document.querySelector("#srtFile");
 const searchBar = document.querySelector(".searchBar");
 const selectDetails = document.getElementById("player__selectDetails");
-const bands= document.querySelectorAll(".band");
-const speed= document.getElementById("speedControl");
-const volume= document.getElementById("volumeControl");
-
+const bands = document.querySelectorAll(".band");
+const speed = document.getElementById("speedControl");
+const volume = document.getElementById("volumeControl");
 
 // TRACKS AND PLAYLIST-RELATED VARIABLES
 let filteredTracks = [];
@@ -58,15 +56,14 @@ let renderingTracks = (tracks) => {
 
     // EVENT LISTENER FOR PLAYING THE TRACK
     content.addEventListener("click", function () {
-
       // Resetting bands,speed and VOLUME
       bands.forEach((band) => {
         band.value = 0;
       });
-      speed.value=1;
-      volume.value=0.5;
-      speedValue.innerHTML='1x';
-      volumeValue.innerHTML='50%'
+      speed.value = 1;
+      volume.value = 0.5;
+      speedValue.innerHTML = "1x";
+      volumeValue.innerHTML = "50%";
 
       currentTrack = index;
       if (track.base64) {
@@ -199,8 +196,8 @@ importPlaylistInput.addEventListener("change", function () {
   // SET BUTTON STATES FOR VISIBILITY
   playButton.classList.remove("fa-circle-play");
   playButton.classList.add("fa-pause");
-  playlist.style.display = 'block';
-  equalizer.style.display = 'block';
+  playlist.style.display = "block";
+  equalizer.style.display = "block";
 });
 
 /**
@@ -317,7 +314,6 @@ function editButton(e) {
   tracks[e.target.id]["genre"] = editData["genre"];
   tracks[e.target.id]["artist"] = editData["artist"];
   tracks[e.target.id]["album"] = editData["album"];
-  
 
   // CLOSE THE MODAL
   modal.click();
@@ -361,7 +357,6 @@ exportPlaylistButton.addEventListener("click", function () {
       artist: selectedTrack.artist,
       genre: selectedTrack.genre,
       album: selectedTrack.album,
-     
     })),
   };
 
