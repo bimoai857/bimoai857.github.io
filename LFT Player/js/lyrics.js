@@ -69,7 +69,8 @@ function handleSrtFile(event) {
  */
 function parseSrt(srtContent) {
   const lines = srtContent.split(/\r?\n/);
-  const parsedLyrics = [];
+  console.log(lines);
+   const parsedLyrics = [];
   let currentLyric = {};
 
   for (let i = 0; i < lines.length; i++) {
