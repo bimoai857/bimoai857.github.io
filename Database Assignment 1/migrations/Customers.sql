@@ -1,3 +1,5 @@
+-- Create Customers table
+
 CREATE TABLE Customers (
     CustomerID SERIAL PRIMARY KEY,
     CustomerName VARCHAR(255),

@@ -1,3 +1,5 @@
+-- Create Employees table
+
 CREATE TABLE Employees (
     EmployeeID SERIAL PRIMARY KEY,
     LastName VARCHAR(255),

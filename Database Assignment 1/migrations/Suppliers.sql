@@ -1,3 +1,5 @@
+-- Create Suppliers table
+
 CREATE TABLE Suppliers (
   SupplierID SERIAL PRIMARY KEY,
   SupplierName VARCHAR(255),

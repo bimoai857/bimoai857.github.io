@@ -1,3 +1,5 @@
+-- Create Shippers table
+
 CREATE TABLE Shippers (
     ShipperID SERIAL PRIMARY KEY,
     ShipperName VARCHAR(255),

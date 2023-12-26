@@ -1,3 +1,5 @@
+-- Create OrderDetails table
+
 CREATE TABLE OrderDetails (
     OrderDetailID SERIAL PRIMARY KEY,
     OrderID INT,
