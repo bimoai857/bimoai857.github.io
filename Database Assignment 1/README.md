@@ -10,7 +10,7 @@ Database Assignment 1 as part of Leapfrog Internship program.
 ## Commands
 
 -- To create a database
-CREATE DATABASE bimochanday_1 WITH ENCODING='UTF8';
+CREATE DATABASE bimochanday_1;
 
 -- To connect to the database
 \c bimochanday_1;
