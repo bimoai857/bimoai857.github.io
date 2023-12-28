@@ -15,8 +15,8 @@ CREATE DATABASE bimochanday_1;
 -- To connect to the database
 \c bimochanday_1;
 
--- TO run migration:
-\i <path-to-migration-file>
+-- To run migration:
+\i [path-to-migration-file]
 
 -- To run seeds:
-\i <path-to-seed-file>
+\i [path-to-seed-file]
