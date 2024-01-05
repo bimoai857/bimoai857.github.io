@@ -66,6 +66,7 @@ export const refreshToken= (refreshToken:String)=>{
         const accessToken = jwt.sign({ data: decodedToken?.payload }, config.jwt.accessTokenSecret!, {
           expiresIn: ACCESS_TOKEN_EXPIRY,
         });
+        
         return accessToken;
     })
     return {accessToken}
