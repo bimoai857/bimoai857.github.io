@@ -7,6 +7,7 @@ export function validateReqQuery(schema: Schema) {
   return (req: Request, _res: Response, next: NextFunction) => {
 
     const { error, value } = schema.validate(req.query);
+    console.log(value)
    
     if (error) {
       return next(new BadRequestError(error.message));

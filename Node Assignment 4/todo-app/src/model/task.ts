@@ -76,18 +76,27 @@ export default class TaskModel extends BaseModel {
       return query;
   }
 
-  static async searchTask(searchTerm: String) {
+  static async searchTask(params: any) {
 
-    return this.queryBuilder()
-      .select({
-        id: "id",
-        title: "title",
-        description: "description",
-        status: "status"
-      })
-      .from("tasks")
-      .where('title', 'ILIKE', `%${searchTerm}%`).orWhere('description', 'ILIKE', `%${searchTerm}%`)
-      .first();
+    const query= this.queryBuilder()
+    .select({
+      id: "id",
+      title: "title",
+      description: "description",
+      status: "status"
+    })
+    .from("tasks").where('title', 'ILIKE', `%${params.searchTerm}%`).orWhere('description', 'ILIKE', `%${params.searchTerm}%`);
+
+    query.offset(params.offset).limit(params.limit);
+  
+    if(params.startDate && params.endDate){
+      query
+      .where("startDate", "<=", params.endDate)
+      .where("endDate", ">=", params.startDate);
+    }
+
+    return query;
+
   }
 
 

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as taskService from '../service/task';
-import { FilterTasksQuery, GetAllTasksQuery } from "../interface/task";
+import { FilterTasksQuery, GetAllTasksQuery, SearchTaskQuery } from "../interface/task";
 
 
 export const getAllTasks = async (req: Request, res: Response) => {
@@ -51,21 +51,18 @@ export const filterTasks = async (req: Request, res: Response, next: NextFunctio
 
 export const searchTask = async (req: Request, res: Response, next: NextFunction) => {
 
-    const searchTerm: any = req.query.searchTerm;
+    const query=req.query;
+
+    const data = await taskService.searchTask(
+        query as unknown as SearchTaskQuery
+    );
 
 
-    try {
-        const data = await taskService.searchTask(searchTerm);
-
-        return res.status(200).json({
-            data
-        })
-
-    }
-    catch (error) {
-        next(error);
-    }
-
+    return res.status(200).json({
+        data: {
+            tasks: data
+        }
+    });
 }
 
 

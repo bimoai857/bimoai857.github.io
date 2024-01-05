@@ -37,4 +37,12 @@ export  const filterTasksSchema = Joi.object({
   // Validation schema for GET /tasks/search
 export  const searchTaskSchema = Joi.object({
     searchTerm: Joi.string().required(),
+    
+    page:Joi.number().integer().min(1).default(DEFAULT_PAGE),
+  
+    size:Joi.number().integer().min(1).max(40).default(DEFAULT_PAGE_SIZE),
+  
+    startDate:Joi.date().iso(),
+  
+    endDate:Joi.date().iso()
   });

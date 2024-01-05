@@ -16,3 +16,9 @@ export interface ITask {
     startDate: string;
     endDate: string;
   }
+
+  export interface SearchTaskQuery extends PaginationQuery{
+    searchTerm:string;
+    startDate: string;
+    endDate: string;
+  }
