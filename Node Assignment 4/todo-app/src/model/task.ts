@@ -47,23 +47,33 @@ export default class TaskModel extends BaseModel {
     return query;
   }
 
-  static async filterTasks(filterId: String) {
+  static async filterTasks(params: any) {
 
-    // if (filterId === '0') {
-    //   return this.getAllTasks();
-    // }
+    if (params.filterId === '0') {
+      return this.getAllTasks(params);
+    }
+    console.log(params);
+    const status = params.filterId === '1' ? false : true;
 
-    const status = filterId === '1' ? false : true;
-
-    return this.queryBuilder()
+      const query= this.queryBuilder()
       .select({
         id: "id",
         title: "title",
         description: "description",
         status: "status"
       })
-      .from("tasks")
-      .where({ status: status })
+      .from("tasks").where({status:status});
+
+      query.offset(params.offset).limit(params.limit);
+
+    
+      if(params.startDate && params.endDate){
+        query
+        .where("startDate", "<=", params.endDate)
+        .where("endDate", ">=", params.startDate);
+      }
+
+      return query;
   }
 
   static async searchTask(searchTerm: String) {

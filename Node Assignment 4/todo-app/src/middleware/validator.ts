@@ -5,8 +5,9 @@ import BadRequestError from "../error/badRequestError";
 
 export function validateReqQuery(schema: Schema) {
   return (req: Request, _res: Response, next: NextFunction) => {
-    const { error, value } = schema.validate(req.query);
 
+    const { error, value } = schema.validate(req.query);
+   
     if (error) {
       return next(new BadRequestError(error.message));
     }
@@ -19,13 +20,14 @@ export function validateReqQuery(schema: Schema) {
 
 export function validateReqParams(schema: Schema) {
   return (req: Request, _res: Response, next: NextFunction) => {
+   
     const { error, value } = schema.validate(req.params);
-    console.log(value);
+   
     if (error) {
       return next(new BadRequestError(error.message));
     }
 
-    req.query = value;
+    req.params = value;
 
     next();
   };

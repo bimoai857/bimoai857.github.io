@@ -22,7 +22,7 @@ export  const getAllTasksSchema = Joi.object({
 // Validation schema for GET /tasks/filter/:filterId
 export  const filterTasksSchema = Joi.object({
 
-  filterId: Joi.string(),
+  filterId: Joi.string().required(),
 
   page:Joi.number().integer().min(1).default(DEFAULT_PAGE),
   
@@ -31,6 +31,7 @@ export  const filterTasksSchema = Joi.object({
   startDate:Joi.date().iso(),
 
   endDate:Joi.date().iso()
+  
 });
   
   // Validation schema for GET /tasks/search
