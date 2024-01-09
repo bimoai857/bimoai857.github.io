@@ -1,4 +1,5 @@
 export default class Signup {
+    
   async getHtml() {
       return `
       <div class='auth'>

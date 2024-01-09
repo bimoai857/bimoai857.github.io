@@ -1,6 +1,6 @@
 import { Knex } from 'knex';
 
-const TABLE_NAME = 'book';
+const TABLE_NAME = 'notification';
 
 
 /**
@@ -12,11 +12,10 @@ const TABLE_NAME = 'book';
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable(TABLE_NAME, (table) => {
     table.bigIncrements();
-    table.string('title',50).notNullable();
-    table.string('author',50);
-    table.binary('image');
-    table.text('description');
-    table.bigInteger('user_id').references('id').inTable('users').onDelete('CASCADE');    
+    table.bigInteger('notification_from');
+    table.bigInteger('notification_to');
+    table.bigInteger('swapbook_id').references('id').inTable('book').onDelete('CASCADE');
+    table.boolean('notification_checked').notNullable().defaultTo(false);
   });
 }
 

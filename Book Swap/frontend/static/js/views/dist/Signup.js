@@ -10,6 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 class Signup {
+    registerEventHandlers() {
+        const userName = document.getElementById("usernameInput");
+        userName === null || userName === void 0 ? void 0 : userName.addEventListener('onchange', function (e) {
+            console.log(e.target);
+        });
+    }
     getHtml() {
         return __awaiter(this, void 0, void 0, function* () {
             return `

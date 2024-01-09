@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-const pathToEnv=path.resolve("backend",".env");
+const pathToEnv=path.resolve(__dirname,'..',".env");
 
 dotenv.config({ path: pathToEnv });
 

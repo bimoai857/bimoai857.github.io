@@ -1,4 +1,4 @@
-import Home from "./views/dist/Home.js";
+import Home from "./views/ts/Home.ts";
 import Login from "./views/dist/Login.js";
 import Signup from "./views/dist/Signup.js";
 
@@ -34,6 +34,7 @@ const router=async()=>{
     const view= new match.route.view();
 
     document.querySelector('#body').innerHTML=await view.getHtml();
+
 }
 
 window.addEventListener("popState",router);
