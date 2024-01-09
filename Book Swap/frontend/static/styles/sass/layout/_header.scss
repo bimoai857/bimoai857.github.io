@@ -1,0 +1,22 @@
+@use '../abstract' as *;
+
+.header{
+    &__logo{
+        width: 104px;
+        height: 93px;
+    }
+    &__content{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__search{
+        @include center-vertical();
+        align-self: center;
+        width: 50%;
+    }
+    &__navigation{
+        @include center-vertical();
+        justify-content: space-between;
+        width: 10%;
+    }
+}

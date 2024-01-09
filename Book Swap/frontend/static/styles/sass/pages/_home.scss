@@ -1,0 +1,9 @@
+.home{
+    &__content{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__image{
+        width: 50%;
+    }
+}

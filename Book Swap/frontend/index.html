@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/styles/main.css"/>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header__content">
+                    <a href="/" onclick="route()" data-link><img class="header__logo" src="./static/assets/logo.jpg" /></a> 
+                    <div class="header__search">
+                    <input placeholder="Title, Author or Keyword"/>
+                </div>
+                <div class="header__navigation">
+                    <a class="header__link" href="/signup" onclick="route()" data-link>Signup</a>
+                    <a class="header__link"  href="/login"  onclick="route()" data-link>Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div id="body"></div>
+</body>
+<script type="module" src="./static/js/index.js"></script>
+</html>
