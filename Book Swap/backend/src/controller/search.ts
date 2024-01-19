@@ -1,15 +1,17 @@
 import { Request, Response } from "express";
 import * as searchService from "../service/search";
+import { ISearch } from "../interface/search";
 
 export const search = async (req: Request, res: Response) => {
-    const searchTerm = req.params.searchTerm;
-  
+
+    const searchDetails:ISearch=req.body;
+
     try {
-      const books = await searchService.search(searchTerm);
+      const booksUserDistance = await searchService.search(searchDetails);
   
       res.status(200).json({
         status: "Data Retrieved Successfully!!",
-        data: books,
+        data: booksUserDistance,
       });
     } catch (error) {
       

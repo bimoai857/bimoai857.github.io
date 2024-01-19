@@ -8,7 +8,7 @@ dotenv.config({ path: pathToEnv });
 const config={
     serverPort:process.env.SERVER_PORT || 6000,
     jwt: {
-      accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
+      accessTokenSecret: process.env.ACCESS_TOKEN_SECRET || 'hbasdhbasdhbadshb',
       refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET,
     },
     database: {
@@ -21,6 +21,7 @@ const config={
         timezone: "UTC",
         user: process.env.DB_USER,
       },
+    clientURL:process.env.CLIENT_URL
 }
 
 export default config;

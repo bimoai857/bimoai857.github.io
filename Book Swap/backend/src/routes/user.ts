@@ -1,10 +1,12 @@
 import { Router } from "express";
-import {getBooks,addBook}  from "../controller/user";
+import {getBooks,addBook,sendNotification, getNotification}  from "../controller/user";
+import { auth } from "../middleware/auth";
 
 const router=Router();
 
-router.get('/getBooks/:userId',getBooks);
+router.get('/getBooks',auth,getBooks);
 router.post('/addBook',addBook);
-// router.get('/getNotifications',getNotifications);
+router.post('/sendNotification',sendNotification);
+router.get('/getNotification',getNotification)
 
 export default router;

@@ -12,7 +12,7 @@ export const signup = async (signupDetails: ISignUp) => {
   // Check if the user already exists in the database
   const checkUser=await AuthModel.checkUser(signupDetails.userName);
 
-  if(checkUser.length===0) return false;
+  if(checkUser) return false;
 
   const hashedPassword=await bcrypt.hash(signupDetails.password, SALT_ROUNDS);
 
